@@ -1,0 +1,1498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"type",
+				"typeIsSet"
+			],
+			[
+				"column",
+				"columnIsSet"
+			],
+			[
+				"dat",
+				"dataSet"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"rem",
+				"removeClass"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"margin-",
+				"margin-top"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"a",
+				"default"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"list-sty",
+				"list-style-type"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"pre",
+				"preRowCount"
+			],
+			[
+				"colu",
+				"columnOne"
+			],
+			[
+				"table",
+				"tableViewDiv"
+			],
+			[
+				"chil",
+				"children  (function)"
+			],
+			[
+				"table-",
+				"table-view"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"bor",
+				"border-right"
+			],
+			[
+				"box-s",
+				"box-sizing:   (property)"
+			],
+			[
+				"table-view",
+				"table-view-type"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"webkit-col",
+				"-webkit-column-gap:   (property)"
+			],
+			[
+				"webkit-column",
+				"-webkit-column-break-inside:   (property)"
+			],
+			[
+				"searc",
+				"searches_by_scope  (function)"
+			],
+			[
+				"to",
+				"top"
+			],
+			[
+				"baselin",
+				"alignment-baseline:   (property)"
+			],
+			[
+				"sect",
+				"sectionId"
+			],
+			[
+				"sec",
+				"section2  (variable)"
+			],
+			[
+				"row",
+				"tableRowFromArray"
+			],
+			[
+				"repo",
+				"reportSets"
+			],
+			[
+				"rep",
+				"report  (variable)"
+			],
+			[
+				"report",
+				"reportType  (variable)"
+			],
+			[
+				"con",
+				"configs"
+			],
+			[
+				"pop",
+				"popular_links_by_view  (function)"
+			],
+			[
+				"se",
+				"sessions  (variable)"
+			],
+			[
+				"str",
+				"structure"
+			],
+			[
+				"ses",
+				"sessions_by_type_by_view  (function)"
+			],
+			[
+				"uns",
+				"unset"
+			],
+			[
+				"is",
+				"isset"
+			],
+			[
+				"no",
+				"no_auth"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"strt",
+				"strtoupper"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"rows",
+				"rowsRaw"
+			],
+			[
+				"sub",
+				"subStructure"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"is_nu",
+				"is_numeric"
+			],
+			[
+				"data",
+				"dataSetType  (variable)"
+			],
+			[
+				"num",
+				"numStringsToNums"
+			],
+			[
+				"vie",
+				"view  (variable)"
+			],
+			[
+				"view",
+				"viewIndex"
+			],
+			[
+				"is_in",
+				"is_int"
+			],
+			[
+				"Dat",
+				"DataSetGroup  (class)"
+			],
+			[
+				"col",
+				"columnHeaders"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"on",
+				"on_campus"
+			],
+			[
+				"all",
+				"all_sessions"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"scroll",
+				"scrollTop"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"Y",
+				"YYYY-MM"
+			],
+			[
+				"new",
+				"newestReportDate"
+			],
+			[
+				"mon",
+				"monthsBack"
+			],
+			[
+				"the",
+				"theFifth"
+			],
+			[
+				"ava",
+				"availableDate"
+			],
+			[
+				"searches",
+				"searches_by_facet"
+			],
+			[
+				"searches_by_facet_group_by_insti",
+				"searches_by_facet_group_by_institution"
+			],
+			[
+				"search",
+				"searches_by_facet_group_by_inst"
+			],
+			[
+				"searches_by_facet_group_",
+				"searches_by_facet_group_by_inst"
+			],
+			[
+				"sear",
+				"searches_by_facet"
+			],
+			[
+				"searches_by",
+				"searches_by_facet_group"
+			],
+			[
+				"frequent_searches_byuh",
+				"frequent_searches_byuh"
+			],
+			[
+				"sea",
+				"searches_by_scope"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"re",
+				"reportSet"
+			],
+			[
+				"cle",
+				"cleansedResults"
+			],
+			[
+				"cla",
+				"cleansedResult"
+			],
+			[
+				"cleans",
+				"cleansedResult"
+			],
+			[
+				"clean",
+				"cleansedResult"
+			],
+			[
+				"clea",
+				"cleanseData"
+			],
+			[
+				"jso",
+				"jsonHandler"
+			],
+			[
+				"repor",
+				"reportType"
+			],
+			[
+				"js",
+				"jsonHandler"
+			],
+			[
+				"rang",
+				"rangeBack"
+			],
+			[
+				"range",
+				"rangeFrom"
+			],
+			[
+				"spl",
+				"splitReportType"
+			],
+			[
+				"inc",
+				"includedReports"
+			],
+			[
+				"function",
+				"function"
+			],
+			[
+				"array_ke",
+				"array_key_exists"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"borde",
+				"border-top"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"chan",
+				"channels_response"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"b",
+				"body"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "chords/chords/settings.py",
+			"settings":
+			{
+				"buffer_size": 2058,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from django.db import models\nimport datetime\nfrom django.utils import timezone\n#from sources import *\n\nclass AppMeta(models.Model):\n    key = models.CharField(max_length=255, primary_key=True)\n    value = models.TextField()\n\nclass Entity(models.Model):\n    latest_date = models.DateTimeField()\n\n    class Meta:\n        get_latest_by = 'pub_date'\n\nclass chordset(models.Model):\n    \nclass chord(models.Model):\n    src = models.CharField(max_length=25, choices=SRC_CHOICES)\n    src_id = models.CharField(max_length=255)\n    src_link = models.TextField()\n    title = models.CharField(max_length=255)\n    text = models.TextField()\n    pub_date = models.DateTimeField()\n    type = models.CharField(max_length=25, choices=TYPE_CHOICES)\n    entity = models.ForeignKey('Entity')\n    tags = models.ManyToManyField('Tag')\n    links = models.ManyToManyField('Link')\n\n    class Meta:\n        unique_together = ('src', 'src_id')\n        get_latest_by = 'pub_date'\n        ordering = ['-pub_date']\n\n\nclass Link(models.Model):\n    link = models.TextField()\n    def __unicode__(self):\n        return self.link\n\n\nclass Tag(models.Model): # tags as the come\n    tag = models.CharField(max_length=255, primary_key=True)\n    super_tag = models.ForeignKey('SuperTag', related_name='super_tag')\n    models.ForeignKey('SuperTag', related_name='super_tag')\n\n\nclass SuperTag(models.Model): # tags, lowercased\n    tag = models.CharField(max_length=255, primary_key=True)\n\n\n",
+			"file": "chords/chord/models.py",
+			"file_size": 57,
+			"file_write_time": 130387783240000000,
+			"settings":
+			{
+				"buffer_size": 1447,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "devnotes.md",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 203.0,
+		"selected_items":
+		[
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"clos",
+				"Project: Close"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"lin",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"lint",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"json",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"prett",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"browse",
+				"File: Open In Browser - Testing Server"
+			],
+			[
+				"brows",
+				"File: Open In Browser - Production Server"
+			],
+			[
+				"prety",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"js",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"pre",
+				"HTMLPrettify"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"cl",
+				"Project: Close"
+			],
+			[
+				"tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"git",
+				"Github: Open File"
+			],
+			[
+				"clo",
+				"Project: Close"
+			],
+			[
+				"bro",
+				"File: Open In Browser - Testing Server"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"men",
+				"View: Toggle Menu"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"view",
+				"View: Toggle Tabs"
+			],
+			[
+				"min",
+				"View: Toggle Minimap"
+			],
+			[
+				"pro",
+				"Project: Close"
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"new v",
+				"File: New View into File"
+			],
+			[
+				"New v",
+				"File: New View into File"
+			],
+			[
+				"file",
+				"File: New View into File"
+			],
+			[
+				"tabs",
+				"View: Toggle Tabs"
+			],
+			[
+				":",
+				"SFTP: Show Panel"
+			],
+			[
+				":menu",
+				"View: Toggle Menu"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 559.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/brojoe/Development/Python/chords_project/.gitignore",
+		"/Users/brojoe/Development/Python/chords_project/.project",
+		"/Users/brojoe/Google Drive/docs/ideas/chordsets.md",
+		"/Users/brojoe/Google Drive/docs/ideas/shared-lib.md",
+		"/Users/brojoe/Google Drive/04 Docs/App Ideas/fabr.md",
+		"/Users/brojoe/Google Drive/04 Docs/App Ideas/sblit.md",
+		"/Users/brojoe/Google Drive/04 Docs/App Ideas/shared-lib.md",
+		"/Volumes/sgrs_chad/PorterStemmer.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/ReportFactory.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/controller/JsonController.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/report.js",
+		"/Volumes/srv/www/vhosts/searchstats/devnotes.md",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/templates/index.tpl.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/old_report.js",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/css/print.css",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/css/style.css",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/jquery.columnizer.js",
+		"/Volumes/srv/www/vhosts/searchstats/config/application.yml",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/_include.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/index.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/css/reset.css",
+		"/Volumes/srv/www/vhosts/searchstats/bin/db.test.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/controller/Controller.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/print.js",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/templates/error.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/error.php",
+		"/Volumes/srv/www/vhosts/searchstats/.log/error_log",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/DataSetOrganizer.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/DataSetFactory.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/DataSet.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/DataSetGroup.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/old_report.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/report/Report.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/report/SimpleReport.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/reports.php",
+		"/Volumes/srv/www/vhosts/searchstats/lib/router/README",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/robots.txt",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/Report.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/css/style.css",
+		"/Volumes/srv/www/vhosts/searchstats/lib/core/ErrorHandler.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/ErrorHandler.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/lib/twig/Filter.php",
+		"/Users/brojoe/Desktop/chart.html",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/ReportDataOrganizer.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/report.php",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/print.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/json/2013.11.01-2013.12.01.json",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/DBConnection.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/getreportdata.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/css/print.css",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/js/print.js",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/Report.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/lib/core/MySQLModel.class.php",
+		"/Volumes/rosetta/srv/utils/rosettaharvest/bin/harvest.sh",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/css/style",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/ReportSet.class.php",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Volumes/srv/www/vhosts/searchstats/class/controller/ParentController.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/moment.min.js",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/js/date.format.js",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/js/report.js",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/2013.08.01-2013.09.01.txt",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/Owner.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/README_LIT.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/Car.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/JsonHandler.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/bl/DatabaseTest.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/ReportFactory.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/lib/core/DatabaseModel.class.php",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/User/Pretty JSON.sublime-settings",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/ReportBuilder.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/model/Queries.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/class/controller/ReportBuilder.class.php",
+		"/Volumes/srv/www/vhosts/searchstats/tmp/database.sql",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/json/2012.10.01-2012.11.01.json",
+		"/Volumes/srv/www/vhosts/searchstats/htdocs/mock/json/2012.09.01-2012.10.01.json",
+		"/Volumes/searchstats/class/controller/Controller.class.php",
+		"/Volumes/searchstats/class/model/README_LIT.class.php",
+		"/Volumes/searchstats/class/bl/ErrorHandler.class.php",
+		"/Volumes/searchstats/class/bl/DatabaseTest.class.php",
+		"/Volumes/searchstats/lib/router/README",
+		"/Volumes/searchstats/config/application.development.yml",
+		"/Volumes/searchstats/htdocs/index.php",
+		"/Volumes/searchstats/config/application.yml",
+		"/Volumes/searchstats/htdocs/.htaccess",
+		"/Users/brojoe/Library/Application Support/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/Volumes/searchstats/.htaccess",
+		"/Volumes/searchstats/htdocs/templates/index.tpl.php",
+		"/Volumes/stats/css/style.css",
+		"/Volumes/stats/js/report.js",
+		"/Volumes/stats/index.php",
+		"/Users/brojoe/Development/GitHub/comb/.gitignore",
+		"/Users/brojoe/Development/GitHub/comb/twitter-scratch.py",
+		"/D/Developement/comb/api-twitter.py",
+		"/D/Developement/comb/config.json",
+		"/D/Developement/comb/.gitignore",
+		"/D/Developement/comb/api-youtube.py",
+		"/D/Developement/comb/api-facebook.py",
+		"/D/Developement/comb/config.example.json",
+		"/D/Developement/comb/sample.config.json",
+		"/D/Developement/comb/facebook-example.json",
+		"/D/Developement/comb/config.yml",
+		"/C/Users/lessages/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/D/Developement/comb/test.json",
+		"/D/Developement/comb/twitter-scratch.py",
+		"/C/Users/Les/AppData/Local/Clover/User Data/Default/Extensions/dnljadhfboggpmgphgmocbhdldgehggl/manifest.json",
+		"/C/Users/Les/Downloads/theme1370469597/manifest.json",
+		"/C/Users/Les/AppData/Local/Clover/User Data/Default/Extensions/dnljadhfboggpmgphgmocbhdldgehggl/Cached Theme.pak",
+		"/C/Program Files (x86)/Clover/clover/.text",
+		"/C/Program Files (x86)/Clover/locales/en-GB.pak",
+		"/C/Users/Les/Projects/Dev/GitHub/comb/fed10ebe053f1af38d38d2e56f54131507e6464a-privatekey.p12",
+		"/C/Users/Les/Projects/Dev/GitHub/comb/api-twitter.py",
+		"/C/Users/Les/Projects/Dev/GitHub/comb/comb.sublime-project",
+		"/C/Users/Les/Projects/Dev/GitHub/larson-theme/index.php",
+		"/C/Users/Les/Projects/Dev/GitHub/larson-theme/js/custom.js",
+		"/C/Users/Les/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Les/Projects/Dev/GitHub/larson-theme/sass/style.scss",
+		"/C/Users/Les/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Les/Projects/Dev/GitHub/larson-theme/larson-theme.sublime-project",
+		"/C/xampp/htdocs/wp/wp-content/themes/larson-theme/archive-custom_type.php",
+		"/C/xampp/php/php.ini",
+		"/C/Google Drive/Public HTML/style.css",
+		"/C/Google Drive/Public HTML/index.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"len\\(",
+			"len(",
+			"transition",
+			":focus",
+			"relat",
+			"white",
+			"21",
+			"span",
+			"facet",
+			"columns",
+			"'columns'",
+			"tableViewDiv",
+			"});\n",
+			"getSectionsTableView",
+			"getSimpleTableView",
+			"build",
+			", tableViewDiv",
+			"result += ",
+			"Group",
+			"columns",
+			"group",
+			"column-headers",
+			"columns",
+			"group",
+			".group",
+			"table",
+			"; ",
+			"overflow",
+			"report-element",
+			"sections",
+			"console",
+			".simple",
+			".sections",
+			"sections",
+			"byu",
+			".table-view",
+			".sections",
+			"even",
+			"	",
+			",",
+			"	",
+			",",
+			"_",
+			"symphony",
+			"	",
+			",",
+			"	",
+			",",
+			"Id",
+			".length",
+			"DATE_FORMAT",
+			"Date_format",
+			"tr.subheading td",
+			".report-select",
+			"#print_wrapper",
+			"print-wrapper",
+			".report-select",
+			"hbll-header",
+			".print-wrapper",
+			"tr.subheading",
+			"is_th",
+			"isTableHeader",
+			"report-element",
+			"report-elementreport",
+			"report-element",
+			"span",
+			"()",
+			"Report",
+			"currentReportSet",
+			"Type",
+			"currentReport",
+			"section.report",
+			"report",
+			"path[4]",
+			"path[3]",
+			"path[2]",
+			"loadView",
+			"/old/",
+			"\\/old/",
+			"\\/old",
+			"/old/",
+			"_",
+			"searches_by_facet_group",
+			"_by_view",
+			"		",
+			"byu",
+			"Film",
+			"$view",
+			"$inst",
+			"insts",
+			"type",
+			"[$inst]",
+			"view",
+			"searches_by_view_by_inst",
+			"byu",
+			"searches_by_facet_group",
+			"view",
+			"searches_by_scope_by_view",
+			"searches_by_view_by_inst",
+			"raw-view-type",
+			"$section",
+			"$section ",
+			"$inst='all'",
+			"'rows'",
+			"$result",
+			"[$key]",
+			"[$value]",
+			"result",
+			"1:,",
+			"]",
+			"[",
+			"structure",
+			"inst",
+			"view",
+			"reportMonth",
+			"report",
+			"decode",
+			"rowsRaw",
+			"rows",
+			"'",
+			"key",
+			"Report",
+			"dataSet",
+			"-",
+			"report",
+			"			// $dataSetFactory = new DataSetFactory();\n			// $dataSetFrom = date_create($dataSetMonth . \"-01\");\n			// $dataSetUntil = date_create($dataSetMonth . \"-01\")->add(date_interval_create_from_date_string('1 months'));\n\n			// $dataSet = $dataSetFactory->getReport($dataSetType, $dataSetFrom->format('Y-m-d'), $dataSetUntil->format('Y-m-d'));",
+			"report",
+			"reportType"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"DataSet",
+			"dataSet",
+			"dataSetType",
+			"dataSetFactory",
+			"dataSetMonth",
+			"dataSetTypes",
+			"includedDataSets",
+			"DataSetOrganizer",
+			"organizeDataSet",
+			"DataSet",
+			"\\$dataSet",
+			"groupArray",
+			"dataSetSeries",
+			"until",
+			"from",
+			"Group",
+			"dataSet",
+			"dataSetBundle",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "chords/chords/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1751,
+								1751
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 671.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chords/chord/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "devnotes.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 400.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 516.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 786.0
+	},
+	"project": "chords.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"de",
+				"desktop.ini"
+			],
+			[
+				"",
+				"index.html"
+			],
+			[
+				"custom",
+				"BankGUISec2/src/edu/byu/isys403/brojoe/Customer.java"
+			],
+			[
+				"cust",
+				"BankGUISec2/src/edu/byu/isys403/brojoe/Customer.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"app",
+				"~/Google Drive/docs/ideas/app-ideas.sublime-project"
+			],
+			[
+				"",
+				"~/Development/Python/larson_project/larson.sublime-project"
+			],
+			[
+				"r",
+				"~/Development/Sublime Projects/rosetta.sublime-project"
+			],
+			[
+				"ja",
+				"/C/Users/Joseph Larson/AppData/Roaming/Sublime Text 2/Packages/User/Java.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
