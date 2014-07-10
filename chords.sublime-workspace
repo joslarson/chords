@@ -448,21 +448,10 @@
 			}
 		},
 		{
-			"contents": "from django.db import models\nimport datetime\nfrom django.utils import timezone\n#from sources import *\n\nclass AppMeta(models.Model):\n    key = models.CharField(max_length=255, primary_key=True)\n    value = models.TextField()\n\nclass Entity(models.Model):\n    latest_date = models.DateTimeField()\n\n    class Meta:\n        get_latest_by = 'pub_date'\n\nclass chordset(models.Model):\n    \nclass chord(models.Model):\n    src = models.CharField(max_length=25, choices=SRC_CHOICES)\n    src_id = models.CharField(max_length=255)\n    src_link = models.TextField()\n    title = models.CharField(max_length=255)\n    text = models.TextField()\n    pub_date = models.DateTimeField()\n    type = models.CharField(max_length=25, choices=TYPE_CHOICES)\n    entity = models.ForeignKey('Entity')\n    tags = models.ManyToManyField('Tag')\n    links = models.ManyToManyField('Link')\n\n    class Meta:\n        unique_together = ('src', 'src_id')\n        get_latest_by = 'pub_date'\n        ordering = ['-pub_date']\n\n\nclass Link(models.Model):\n    link = models.TextField()\n    def __unicode__(self):\n        return self.link\n\n\nclass Tag(models.Model): # tags as the come\n    tag = models.CharField(max_length=255, primary_key=True)\n    super_tag = models.ForeignKey('SuperTag', related_name='super_tag')\n    models.ForeignKey('SuperTag', related_name='super_tag')\n\n\nclass SuperTag(models.Model): # tags, lowercased\n    tag = models.CharField(max_length=255, primary_key=True)\n\n\n",
 			"file": "chords/chord/models.py",
-			"file_size": 57,
-			"file_write_time": 130387783240000000,
 			"settings":
 			{
-				"buffer_size": 1447,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "devnotes.md",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 2462,
 				"line_ending": "Unix"
 			}
 		},
@@ -473,14 +462,26 @@
 				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "devnotes.md",
+			"settings":
+			{
+				"buffer_size": 375,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 203.0,
+		"height": 237.0,
 		"selected_items":
 		[
+			[
+				"git: br",
+				"Git: Change Branch"
+			],
 			[
 				"add",
 				"Project: Add Folder"
@@ -714,7 +715,7 @@
 				"View: Toggle Menu"
 			]
 		],
-		"width": 475.0
+		"width": 507.0
 	},
 	"console":
 	{
@@ -881,6 +882,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"SRC",
+			"5",
 			"len\\(",
 			"len(",
 			"transition",
@@ -1006,9 +1009,7 @@
 			"dataSet",
 			"-",
 			"report",
-			"			// $dataSetFactory = new DataSetFactory();\n			// $dataSetFrom = date_create($dataSetMonth . \"-01\");\n			// $dataSetUntil = date_create($dataSetMonth . \"-01\")->add(date_interval_create_from_date_string('1 months'));\n\n			// $dataSet = $dataSetFactory->getReport($dataSetType, $dataSetFrom->format('Y-m-d'), $dataSetUntil->format('Y-m-d'));",
-			"report",
-			"reportType"
+			"			// $dataSetFactory = new DataSetFactory();\n			// $dataSetFrom = date_create($dataSetMonth . \"-01\");\n			// $dataSetUntil = date_create($dataSetMonth . \"-01\")->add(date_interval_create_from_date_string('1 months'));\n\n			// $dataSet = $dataSetFactory->getReport($dataSetType, $dataSetFrom->format('Y-m-d'), $dataSetUntil->format('Y-m-d'));"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1045,7 +1046,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1179,7 +1180,7 @@
 						"translation.y": 671.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1188,15 +1189,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1447,
+						"buffer_size": 2462,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								381,
-								381
+								1096,
+								1096
 							]
 						],
 						"settings":
@@ -1306,45 +1307,18 @@
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
 							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "devnotes.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 235.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "Makefile",
 					"semi_transient": true,
 					"settings":
@@ -1368,7 +1342,147 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "devnotes.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								286,
+								286
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1391,11 +1505,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.51708571743,
 			1.0
 		],
 		"rows":
@@ -1457,12 +1578,12 @@
 		"selected_items":
 		[
 			[
-				"app",
-				"~/Google Drive/docs/ideas/app-ideas.sublime-project"
+				"",
+				"~/Development/Sublime Projects/stats.sublime-project"
 			],
 			[
-				"",
-				"~/Development/Python/larson_project/larson.sublime-project"
+				"app",
+				"~/Google Drive/docs/ideas/app-ideas.sublime-project"
 			],
 			[
 				"r",
