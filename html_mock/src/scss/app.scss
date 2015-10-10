@@ -1,0 +1,105 @@
+$bg: hsl(0, 0%, 84%);
+$bg_soft: hsl(0, 0%, 91%);
+
+$accent: hsl(163, 90%, 66%);
+
+$line: hsl(0, 0%, 30%);
+$line_soft: hsl(0, 0%, 73%);
+
+$text: hsl(0, 0%, 26%);
+$text_soft: hsl(0, 0%, 66%);
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 25px; 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+svg {
+    background: $bg_soft;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.1);
+
+    margin: 15px;
+
+    text {
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: $text_soft;
+        font-weight: 600;
+        line-height: 1;
+        user-select: none;
+        cursor: default;
+    }
+
+    rect.inner-bg {
+        stroke: $line;
+        stroke-width: 2px;
+    }
+
+    .dot {
+        fill: rgba(240, 240, 240, 1);
+        // fill: rgba(0, 0, 0, .125);
+    }
+
+    .dot-ontop {
+        fill: rgb(240,240,240);
+    }
+
+    .finger {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+
+        &.outer {
+            stroke: $line;
+            stroke-width: 18px;
+        }
+        &.inner {
+            stroke: $accent;
+            stroke-width: 8px;
+        }
+        &.line.outer {
+            stroke-width: 15.5px;
+        }
+        &.line.inner {
+            stroke-width: 5px;
+        }
+    }
+
+}
+
+#grid1, #grid2 {
+    rect {
+        fill: $bg;
+    }
+    path {
+        stroke: $line;
+        fill: $line;
+    }
+}
+
+.line {
+    stroke: $line_soft;
+    stroke-width: 1px;
+
+    &.top {
+        stroke-width: 4px;
+    }
+
+    &.bottom {
+        stroke-width: 2px;
+    }
+
+    &.inner {
+        stroke: $line;
+    }
+}
+

@@ -2,3 +2,6 @@
 *.pot
 *.pyc
 local_settings.py
+
+html_mock/node_modules
+html_mock/.sass-cache

@@ -1,0 +1,80 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 25px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px; }
+
+svg {
+  background: #e8e8e8;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 15px; }
+  svg text {
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #a8a8a8;
+    font-weight: 600;
+    line-height: 1;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: default; }
+  svg rect.inner-bg {
+    stroke: #4d4d4d;
+    stroke-width: 2px; }
+  svg .dot {
+    fill: #f0f0f0; }
+  svg .dot-ontop {
+    fill: #f0f0f0; }
+  svg .finger {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none; }
+    svg .finger.outer {
+      stroke: #4d4d4d;
+      stroke-width: 18px; }
+    svg .finger.inner {
+      stroke: #5af6ca;
+      stroke-width: 8px; }
+    svg .finger.line.outer {
+      stroke-width: 15.5px; }
+    svg .finger.line.inner {
+      stroke-width: 5px; }
+
+#grid1 rect, #grid2 rect {
+  fill: #d6d6d6; }
+#grid1 path, #grid2 path {
+  stroke: #4d4d4d;
+  fill: #4d4d4d; }
+
+.line {
+  stroke: #bababa;
+  stroke-width: 1px; }
+  .line.top {
+    stroke-width: 4px; }
+  .line.bottom {
+    stroke-width: 2px; }
+  .line.inner {
+    stroke: #4d4d4d; }
+
+
+
+/*# sourceMappingURL=app.css.map */
