@@ -41,23 +41,44 @@ svg {
     stroke: #4d4d4d;
     stroke-width: 2px; }
   svg .dot {
-    fill: #f0f0f0; }
-  svg .dot-ontop {
-    fill: #f0f0f0; }
-  svg .finger {
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none; }
-    svg .finger.outer {
+    fill: rgba(250, 250, 250, 0.65);
+    pointer-events: none; }
+  svg .hover-region {
+    opacity: 0; }
+  svg .fret .finger {
+    opacity: 0; }
+    svg .fret .finger:hover {
+      opacity: 1; }
+    svg .fret .finger .inner, svg .fret .finger .outer {
+      -webkit-transition: stroke-width .2s;
+              transition: stroke-width .2s;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none; }
+    svg .fret .finger .outer {
       stroke: #4d4d4d;
       stroke-width: 18px; }
-    svg .finger.inner {
-      stroke: #5af6ca;
+    svg .fret .finger .inner {
+      stroke: #d6d6d6;
       stroke-width: 8px; }
-    svg .finger.line.outer {
+    svg .fret .finger .line.outer {
       stroke-width: 15.5px; }
-    svg .finger.line.inner {
-      stroke-width: 5px; }
+    svg .fret .finger .line.inner {
+      stroke-width: 5.5px; }
+  svg .fret:hover .finger {
+    opacity: .15; }
+    svg .fret:hover .finger:hover {
+      -webkit-transition: opacity 0s;
+              transition: opacity 0s;
+      opacity: 1; }
+  svg .fret.adding.dragging:active .finger:not(.active) {
+    -webkit-transition: opacity .25s;
+            transition: opacity .25s;
+    opacity: 0; }
+  svg .fret .finger.active {
+    opacity: 1; }
+    svg .fret .finger.active .inner {
+      stroke: #5af6ca; }
 
 #grid1 rect, #grid2 rect {
   fill: #d6d6d6; }

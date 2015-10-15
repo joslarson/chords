@@ -10,6 +10,7 @@ export default class Chord {
         this.stringCount = chordset.strings.length;
         this.columnCount = this.stringCount - 1;
         this.fretRange = this.getFretRange();
+        this.fretBoundaries = this.getFretBoundaries();
 
         this.cardMargins = [54, 37, 52, 37];
         this.rowHeight = 34;
@@ -24,6 +25,7 @@ export default class Chord {
     }
 
     drawSvg() {
+        var that = this;
         var s = this.snap;
 
         //////////////////////////////////////////////////////////
@@ -75,13 +77,13 @@ export default class Chord {
         // draw marker dots
 
         for(let i in this.fretRange){
-            let dotSize = 5;
+            let dotSize = 6;
             if([3, 5, 7, 9, 15, 17, 19, 21].indexOf(this.fretRange[i]) > -1){
                 s.circle(this.width/2, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot');
             }
             if([12].indexOf(this.fretRange[i]) > -1){
-                s.circle(this.width/2 - this.columnWidth * 1, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot');
-                s.circle(this.width/2 + this.columnWidth * 1, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot');
+                s.circle(this.width/2 - this.columnWidth, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot');
+                s.circle(this.width/2 + this.columnWidth, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot');
             }
         }
 
@@ -103,41 +105,115 @@ export default class Chord {
         //////////////////////////////////////////////////////////
         // draw fingers
 
-        for (let finger of this.fingers) {
-            if(finger.length == 0) continue;
+        for(let fret in this.fretRange) {
+            let fretGroup = s.g(
+                // draw fret hover area
+                s.rect(
+                    0, 
+                    this.cardMargins[0] + (fret * this.rowHeight),
+                    this.width,
+                    this.rowHeight
+                ).addClass('hover-region')
+            ).addClass('fret');
+            // draw string lines
+            for(let string = 1; string <= this.stringCount; string++) {
+                let startPoint = this.getFingerDrawPoint(this.fretRange[fret], string);
+                let endPoint = startPoint;
+                let lineArgs = [startPoint[0], startPoint[1], endPoint[0], endPoint[1]];
+                let fingerOuter = s.line(...lineArgs).addClass('outer');
+                fingerOuter.coords = [fret, string];
+                let fingerInner = s.line(...lineArgs).addClass('inner');
+                fingerInner.coords = [fret, string];
+                let fingerGroup = s.g(
+                    s.rect(
+                        this.width - this.cardMargins[1] - ((string - 1) * this.columnWidth) - (this.columnWidth / 2) - 1,
+                        this.cardMargins[0] + (fret * this.rowHeight),
+                        this.columnWidth,
+                        this.rowHeight
+                    ).addClass('hover-region'),
+                    fingerOuter,
+                    fingerInner
+                ).addClass('finger').mousedown(function(handler){
+                    if(this.hasClass('active')) {
 
-            let pathParts = [];
+                    }
+                    this.toggleClass('active');
+                    if(this.hasClass('active')) {
+                        fretGroup.addClass('adding');
+                    } else {
+                        let x1 = parseInt(fingerInner.attr('x1'));
+                        fretGroup.addClass('removing');
 
-            var startPoint = this.getFingerDrawPoint(finger[0][0], finger[0][1]);
-            pathParts.push(`M${startPoint[0]} ${startPoint[1]}`);
-            for(let gridPoint of finger) {
-                let point = this.getFingerDrawPoint(gridPoint[0], gridPoint[1]);
-                pathParts.push(`${point[0]} ${point[1]}`);
-            }
-            let pathString = pathParts.join(', ');
+                        fingerInner.animate({x2: x1}, 100).removeClass('line');
+                        fingerOuter.animate({x2: x1}, 100).removeClass('line');
+                    }
+                }).drag(function(dx, dy, x, y, event) {
+                    fretGroup.addClass('dragging');
+                    let x1 = parseInt(fingerInner.attr('x1'));
+                    let x2 = parseInt(fingerInner.attr('x2'));
+                    let x2new = x1 + dx;
 
-            let fingerOuter = s.path(pathString).addClass('finger outer');
-            let fingerInner = s.path(pathString).addClass('finger inner');
+                    for(let string = 1; string <= that.stringCount; string++) {
+                        // console.log('blah');
+                        let x = that.getFingerDrawPoint(fret, string)[0];
+                        let diff = Math.abs(x - x2new);
+                        // console.log(diff);
+                        if(diff < that.columnWidth / 2 + .5){
+                            x2new = x;
+                            // fingerOuter.x2 = x2new;
+                            if(fingerInner.x2 != x2new) {
+                                fingerInner.x2 = x2new;
+                                // console.log(x2, x2new);
+                                fingerInner.animate({x2: x2new}, 75);
+                                fingerOuter.animate({x2: x2new}, 75);
 
-            if (finger.length > 1) {
-                fingerInner.addClass('line');
-                fingerOuter.addClass('line');
+                                if(x2new != x1){
+                                    fingerInner.addClass('line');
+                                    fingerOuter.addClass('line');
+                                } else {
+                                    fingerInner.removeClass('line');
+                                    fingerOuter.removeClass('line');
+                                }
+                            }
+                            break;
+                        }
+                    }
+
+
+                });
+                fretGroup.mouseup(function(handler) {
+                    this.removeClass('adding').removeClass('removing').removeClass('dragging');
+                });
+                fretGroup.append(fingerGroup);
             }
         }
 
-        //////////////////////////////////////////////////////////
-        // draw marker dots
+        // for (let finger of this.fingers) {
+        //     if(finger.length == 0) continue;
 
-        for(let i in this.fretRange){
-            let dotSize = 6.5;
-            if([3, 5, 7, 9, 15, 17, 19, 21].indexOf(this.fretRange[i]) > -1){
-                s.circle(this.width/2, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-            }
-            if([12].indexOf(this.fretRange[i]) > -1){
-                s.circle(this.width/2 - this.columnWidth * 1, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-                s.circle(this.width/2 + this.columnWidth * 1, this.cardMargins[0] + (this.rowHeight * i) + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-            }
-        }
+        //     let pathParts = [];
+
+        //     var startPoint = this.getFingerDrawPoint(finger[0][1], finger[0][0]);
+        //     pathParts.push(`M${startPoint[0]} ${startPoint[1]}`);
+        //     for(let gridPoint of finger) {
+        //         let point = this.getFingerDrawPoint(gridPoint[1], gridPoint[0]);
+        //         pathParts.push(`${point[0]} ${point[1]}`);
+        //     }
+        //     let pathString = pathParts.join(', ');
+
+        //     let fingerOuter = s.path(pathString).addClass('outer');
+        //     let fingerInner = s.path(pathString).addClass('inner')
+        //     s.g(
+        //         fingerOuter,
+        //         fingerInner
+        //     ).addClass('finger');
+
+        //     if (finger.length > 1) {
+        //         fingerInner.addClass('line');
+        //         fingerOuter.addClass('line');
+        //     }
+        // }
+
     }
 
     getFretRange() {
@@ -175,7 +251,20 @@ export default class Chord {
         return fretRange;
     }
 
-    getFingerDrawPoint(string, fret) {
+    getFretBoundaries(){
+        var result = [];
+        for(let fret of this.fretRange) {
+            result[fret] = [];
+        }
+        for(let finger of this.fingers) {
+            for(let coord of finger){
+                if(coord) result[coord[1]].push(coord[0]);
+            }
+        }
+        return result;
+    }
+
+    getFingerDrawPoint(fret, string) {
         var startFret = this.fretRange[0];
 
         var x = this.width - this.cardMargins[1] - (string - 1) * this.columnWidth - 1;

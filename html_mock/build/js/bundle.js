@@ -51,6 +51,7 @@ var Chord = (function () {
         this.stringCount = chordset.strings.length;
         this.columnCount = this.stringCount - 1;
         this.fretRange = this.getFretRange();
+        this.fretBoundaries = this.getFretBoundaries();
 
         this.cardMargins = [54, 37, 52, 37];
         this.rowHeight = 34;
@@ -67,6 +68,9 @@ var Chord = (function () {
     _createClass(Chord, [{
         key: 'drawSvg',
         value: function drawSvg() {
+            var _this = this;
+
+            var that = this;
             var s = this.snap;
 
             //////////////////////////////////////////////////////////
@@ -109,13 +113,13 @@ var Chord = (function () {
             // draw marker dots
 
             for (var i in this.fretRange) {
-                var dotSize = 5;
+                var dotSize = 6;
                 if ([3, 5, 7, 9, 15, 17, 19, 21].indexOf(this.fretRange[i]) > -1) {
                     s.circle(this.width / 2, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot');
                 }
                 if ([12].indexOf(this.fretRange[i]) > -1) {
-                    s.circle(this.width / 2 - this.columnWidth * 1, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot');
-                    s.circle(this.width / 2 + this.columnWidth * 1, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot');
+                    s.circle(this.width / 2 - this.columnWidth, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot');
+                    s.circle(this.width / 2 + this.columnWidth, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot');
                 }
             }
 
@@ -137,6 +141,112 @@ var Chord = (function () {
             //////////////////////////////////////////////////////////
             // draw fingers
 
+            var _loop = function (_fret) {
+                var fretGroup = s.g(
+                // draw fret hover area
+                s.rect(0, _this.cardMargins[0] + _fret * _this.rowHeight, _this.width, _this.rowHeight).addClass('hover-region')).addClass('fret');
+                // draw string lines
+
+                var _loop2 = function (string) {
+                    var startPoint = _this.getFingerDrawPoint(_this.fretRange[_fret], string);
+                    var endPoint = startPoint;
+                    var lineArgs = [startPoint[0], startPoint[1], endPoint[0], endPoint[1]];
+                    var fingerOuter = s.line.apply(s, lineArgs).addClass('outer');
+                    fingerOuter.coords = [_fret, string];
+                    var fingerInner = s.line.apply(s, lineArgs).addClass('inner');
+                    fingerInner.coords = [_fret, string];
+                    var fingerGroup = s.g(s.rect(_this.width - _this.cardMargins[1] - (string - 1) * _this.columnWidth - _this.columnWidth / 2 - 1, _this.cardMargins[0] + _fret * _this.rowHeight, _this.columnWidth, _this.rowHeight).addClass('hover-region'), fingerOuter, fingerInner).addClass('finger').mousedown(function (handler) {
+                        if (this.hasClass('active')) {}
+                        this.toggleClass('active');
+                        if (this.hasClass('active')) {
+                            fretGroup.addClass('adding');
+                        } else {
+                            var x1 = parseInt(fingerInner.attr('x1'));
+                            fretGroup.addClass('removing');
+
+                            fingerInner.animate({ x2: x1 }, 100).removeClass('line');
+                            fingerOuter.animate({ x2: x1 }, 100).removeClass('line');
+                        }
+                    }).drag(function (dx, dy, x, y, event) {
+                        fretGroup.addClass('dragging');
+                        var x1 = parseInt(fingerInner.attr('x1'));
+                        var x2 = parseInt(fingerInner.attr('x2'));
+                        var x2new = x1 + dx;
+
+                        for (var _string = 1; _string <= that.stringCount; _string++) {
+                            // console.log('blah');
+                            var _x = that.getFingerDrawPoint(_fret, _string)[0];
+                            var diff = Math.abs(_x - x2new);
+                            // console.log(diff);
+                            if (diff < that.columnWidth / 2 + .5) {
+                                x2new = _x;
+                                // fingerOuter.x2 = x2new;
+                                if (fingerInner.x2 != x2new) {
+                                    fingerInner.x2 = x2new;
+                                    // console.log(x2, x2new);
+                                    fingerInner.animate({ x2: x2new }, 75);
+                                    fingerOuter.animate({ x2: x2new }, 75);
+
+                                    if (x2new != x1) {
+                                        fingerInner.addClass('line');
+                                        fingerOuter.addClass('line');
+                                    } else {
+                                        fingerInner.removeClass('line');
+                                        fingerOuter.removeClass('line');
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    });
+                    fretGroup.mouseup(function (handler) {
+                        this.removeClass('adding').removeClass('removing').removeClass('dragging');
+                    });
+                    fretGroup.append(fingerGroup);
+                };
+
+                for (var string = 1; string <= _this.stringCount; string++) {
+                    _loop2(string);
+                }
+            };
+
+            for (var _fret in this.fretRange) {
+                _loop(_fret);
+            }
+
+            // for (let finger of this.fingers) {
+            //     if(finger.length == 0) continue;
+
+            //     let pathParts = [];
+
+            //     var startPoint = this.getFingerDrawPoint(finger[0][1], finger[0][0]);
+            //     pathParts.push(`M${startPoint[0]} ${startPoint[1]}`);
+            //     for(let gridPoint of finger) {
+            //         let point = this.getFingerDrawPoint(gridPoint[1], gridPoint[0]);
+            //         pathParts.push(`${point[0]} ${point[1]}`);
+            //     }
+            //     let pathString = pathParts.join(', ');
+
+            //     let fingerOuter = s.path(pathString).addClass('outer');
+            //     let fingerInner = s.path(pathString).addClass('inner')
+            //     s.g(
+            //         fingerOuter,
+            //         fingerInner
+            //     ).addClass('finger');
+
+            //     if (finger.length > 1) {
+            //         fingerInner.addClass('line');
+            //         fingerOuter.addClass('line');
+            //     }
+            // }
+        }
+    }, {
+        key: 'getFretRange',
+        value: function getFretRange() {
+            var lowFret, highFret;
+            var fretRange = [];
+            var fretRangeBoudaries = [];
+
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -144,23 +254,23 @@ var Chord = (function () {
             try {
                 for (var _iterator = this.fingers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var finger = _step.value;
-
-                    if (finger.length == 0) continue;
-
-                    var pathParts = [];
-
-                    var startPoint = this.getFingerDrawPoint(finger[0][0], finger[0][1]);
-                    pathParts.push('M' + startPoint[0] + ' ' + startPoint[1]);
                     var _iteratorNormalCompletion2 = true;
                     var _didIteratorError2 = false;
                     var _iteratorError2 = undefined;
 
                     try {
                         for (var _iterator2 = finger[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                            var gridPoint = _step2.value;
+                            var pos = _step2.value;
 
-                            var point = this.getFingerDrawPoint(gridPoint[0], gridPoint[1]);
-                            pathParts.push(point[0] + ' ' + point[1]);
+                            lowFret = fretRangeBoudaries[0];
+                            highFret = fretRangeBoudaries[1];
+
+                            if (lowFret === undefined || pos[1] < lowFret) {
+                                fretRangeBoudaries[0] = pos[1];
+                            }
+                            if (highFret === undefined || pos[1] > highFret) {
+                                fretRangeBoudaries[1] = pos[1];
+                            }
                         }
                     } catch (err) {
                         _didIteratorError2 = true;
@@ -176,20 +286,7 @@ var Chord = (function () {
                             }
                         }
                     }
-
-                    var pathString = pathParts.join(', ');
-
-                    var fingerOuter = s.path(pathString).addClass('finger outer');
-                    var fingerInner = s.path(pathString).addClass('finger inner');
-
-                    if (finger.length > 1) {
-                        fingerInner.addClass('line');
-                        fingerOuter.addClass('line');
-                    }
                 }
-
-                //////////////////////////////////////////////////////////
-                // draw marker dots
             } catch (err) {
                 _didIteratorError = true;
                 _iteratorError = err;
@@ -201,79 +298,6 @@ var Chord = (function () {
                 } finally {
                     if (_didIteratorError) {
                         throw _iteratorError;
-                    }
-                }
-            }
-
-            for (var i in this.fretRange) {
-                var dotSize = 6.5;
-                if ([3, 5, 7, 9, 15, 17, 19, 21].indexOf(this.fretRange[i]) > -1) {
-                    s.circle(this.width / 2, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-                }
-                if ([12].indexOf(this.fretRange[i]) > -1) {
-                    s.circle(this.width / 2 - this.columnWidth * 1, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-                    s.circle(this.width / 2 + this.columnWidth * 1, this.cardMargins[0] + this.rowHeight * i + this.rowHeight / 2, dotSize).addClass('dot-ontop');
-                }
-            }
-        }
-    }, {
-        key: 'getFretRange',
-        value: function getFretRange() {
-            var lowFret, highFret;
-            var fretRange = [];
-            var fretRangeBoudaries = [];
-
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
-            try {
-                for (var _iterator3 = this.fingers[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var finger = _step3.value;
-                    var _iteratorNormalCompletion4 = true;
-                    var _didIteratorError4 = false;
-                    var _iteratorError4 = undefined;
-
-                    try {
-                        for (var _iterator4 = finger[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                            var pos = _step4.value;
-
-                            lowFret = fretRangeBoudaries[0];
-                            highFret = fretRangeBoudaries[1];
-
-                            if (lowFret === undefined || pos[1] < lowFret) {
-                                fretRangeBoudaries[0] = pos[1];
-                            }
-                            if (highFret === undefined || pos[1] > highFret) {
-                                fretRangeBoudaries[1] = pos[1];
-                            }
-                        }
-                    } catch (err) {
-                        _didIteratorError4 = true;
-                        _iteratorError4 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion4 && _iterator4['return']) {
-                                _iterator4['return']();
-                            }
-                        } finally {
-                            if (_didIteratorError4) {
-                                throw _iteratorError4;
-                            }
-                        }
-                    }
-                }
-            } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion3 && _iterator3['return']) {
-                        _iterator3['return']();
-                    }
-                } finally {
-                    if (_didIteratorError3) {
-                        throw _iteratorError3;
                     }
                 }
             }
@@ -294,8 +318,86 @@ var Chord = (function () {
             return fretRange;
         }
     }, {
+        key: 'getFretBoundaries',
+        value: function getFretBoundaries() {
+            var result = [];
+            var _iteratorNormalCompletion3 = true;
+            var _didIteratorError3 = false;
+            var _iteratorError3 = undefined;
+
+            try {
+                for (var _iterator3 = this.fretRange[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                    var fret = _step3.value;
+
+                    result[fret] = [];
+                }
+            } catch (err) {
+                _didIteratorError3 = true;
+                _iteratorError3 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion3 && _iterator3['return']) {
+                        _iterator3['return']();
+                    }
+                } finally {
+                    if (_didIteratorError3) {
+                        throw _iteratorError3;
+                    }
+                }
+            }
+
+            var _iteratorNormalCompletion4 = true;
+            var _didIteratorError4 = false;
+            var _iteratorError4 = undefined;
+
+            try {
+                for (var _iterator4 = this.fingers[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                    var finger = _step4.value;
+                    var _iteratorNormalCompletion5 = true;
+                    var _didIteratorError5 = false;
+                    var _iteratorError5 = undefined;
+
+                    try {
+                        for (var _iterator5 = finger[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                            var coord = _step5.value;
+
+                            if (coord) result[coord[1]].push(coord[0]);
+                        }
+                    } catch (err) {
+                        _didIteratorError5 = true;
+                        _iteratorError5 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion5 && _iterator5['return']) {
+                                _iterator5['return']();
+                            }
+                        } finally {
+                            if (_didIteratorError5) {
+                                throw _iteratorError5;
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                _didIteratorError4 = true;
+                _iteratorError4 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion4 && _iterator4['return']) {
+                        _iterator4['return']();
+                    }
+                } finally {
+                    if (_didIteratorError4) {
+                        throw _iteratorError4;
+                    }
+                }
+            }
+
+            return result;
+        }
+    }, {
         key: 'getFingerDrawPoint',
-        value: function getFingerDrawPoint(string, fret) {
+        value: function getFingerDrawPoint(fret, string) {
             var startFret = this.fretRange[0];
 
             var x = this.width - this.cardMargins[1] - (string - 1) * this.columnWidth - 1;
