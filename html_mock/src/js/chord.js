@@ -272,4 +272,8 @@ export default class Chord {
 
         return [x, y];
     }
+
+    getCoord(x, y) {
+        x - this.cardMargins[3]  this.innerWidth 
+    }
 }
