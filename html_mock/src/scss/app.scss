@@ -54,7 +54,11 @@ svg {
     .fret {
         .finger {
             opacity: 0;
-
+    
+            &.disabled {
+                opacity: 0 !important;
+                pointer-events: none;
+            }
             &:hover {
                 opacity: 1;
             }

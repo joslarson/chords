@@ -52,6 +52,7 @@ var Chord = (function () {
         this.columnCount = this.stringCount - 1;
         this.fretRange = this.getFretRange();
         this.fretBoundaries = this.getFretBoundaries();
+        // console.log(this.fretBoundaries);
 
         this.cardMargins = [54, 37, 52, 37];
         this.rowHeight = 34;
@@ -63,6 +64,8 @@ var Chord = (function () {
         this.width = this.innerWidth + this.cardMargins[1] + this.cardMargins[3];
 
         this.snap = Snap(this.width, this.height);
+
+        // console.log(this.getCoord(65, 140));
     }
 
     _createClass(Chord, [{
@@ -148,7 +151,9 @@ var Chord = (function () {
                 // draw string lines
 
                 var _loop2 = function (string) {
-                    var startPoint = _this.getFingerDrawPoint(_this.fretRange[_fret], string);
+                    var startPoint = _this.getFingerDrawPoint(string, _this.fretRange[_fret]);
+                    console.log([string, parseInt(_fret) + _this.fretRange[0]]);
+                    console.log(_this.getCoord(startPoint[0], startPoint[1]));
                     var endPoint = startPoint;
                     var lineArgs = [startPoint[0], startPoint[1], endPoint[0], endPoint[1]];
                     var fingerOuter = s.line.apply(s, lineArgs).addClass('outer');
@@ -167,23 +172,19 @@ var Chord = (function () {
                             fingerInner.animate({ x2: x1 }, 100).removeClass('line');
                             fingerOuter.animate({ x2: x1 }, 100).removeClass('line');
                         }
-                    }).drag(function (dx, dy, x, y, event) {
+                    }).drag(function (dx, dy) {
                         fretGroup.addClass('dragging');
                         var x1 = parseInt(fingerInner.attr('x1'));
                         var x2 = parseInt(fingerInner.attr('x2'));
                         var x2new = x1 + dx;
 
                         for (var _string = 1; _string <= that.stringCount; _string++) {
-                            // console.log('blah');
-                            var _x = that.getFingerDrawPoint(_fret, _string)[0];
-                            var diff = Math.abs(_x - x2new);
-                            // console.log(diff);
+                            var x = that.getFingerDrawPoint(_string, _fret)[0];
+                            var diff = Math.abs(x - x2new);
                             if (diff < that.columnWidth / 2 + .5) {
-                                x2new = _x;
-                                // fingerOuter.x2 = x2new;
+                                x2new = x;
                                 if (fingerInner.x2 != x2new) {
                                     fingerInner.x2 = x2new;
-                                    // console.log(x2, x2new);
                                     fingerInner.animate({ x2: x2new }, 75);
                                     fingerOuter.animate({ x2: x2new }, 75);
 
@@ -199,6 +200,11 @@ var Chord = (function () {
                             }
                         }
                     });
+                    if (_this.fretBoundaries[parseInt(_fret)]) {
+                        if (_this.fretBoundaries[parseInt(_fret)].indexOf(parseInt(string))) {
+                            fretGroup.addClass('disabled');
+                        }
+                    }
                     fretGroup.mouseup(function (handler) {
                         this.removeClass('adding').removeClass('removing').removeClass('dragging');
                     });
@@ -213,32 +219,6 @@ var Chord = (function () {
             for (var _fret in this.fretRange) {
                 _loop(_fret);
             }
-
-            // for (let finger of this.fingers) {
-            //     if(finger.length == 0) continue;
-
-            //     let pathParts = [];
-
-            //     var startPoint = this.getFingerDrawPoint(finger[0][1], finger[0][0]);
-            //     pathParts.push(`M${startPoint[0]} ${startPoint[1]}`);
-            //     for(let gridPoint of finger) {
-            //         let point = this.getFingerDrawPoint(gridPoint[1], gridPoint[0]);
-            //         pathParts.push(`${point[0]} ${point[1]}`);
-            //     }
-            //     let pathString = pathParts.join(', ');
-
-            //     let fingerOuter = s.path(pathString).addClass('outer');
-            //     let fingerInner = s.path(pathString).addClass('inner')
-            //     s.g(
-            //         fingerOuter,
-            //         fingerInner
-            //     ).addClass('finger');
-
-            //     if (finger.length > 1) {
-            //         fingerInner.addClass('line');
-            //         fingerOuter.addClass('line');
-            //     }
-            // }
         }
     }, {
         key: 'getFretRange',
@@ -304,6 +284,7 @@ var Chord = (function () {
 
             lowFret = fretRangeBoudaries[0];
             highFret = fretRangeBoudaries[1];
+
             if (highFret < 7) {
                 fretRangeBoudaries[0] = 1;
                 fretRangeBoudaries[1] = 6;
@@ -397,13 +378,20 @@ var Chord = (function () {
         }
     }, {
         key: 'getFingerDrawPoint',
-        value: function getFingerDrawPoint(fret, string) {
+        value: function getFingerDrawPoint(string, fret) {
             var startFret = this.fretRange[0];
 
             var x = this.width - this.cardMargins[1] - (string - 1) * this.columnWidth - 1;
             var y = this.cardMargins[0] + (fret - startFret + 1) * this.rowHeight - this.rowHeight / 2;
 
             return [x, y];
+        }
+    }, {
+        key: 'getCoord',
+        value: function getCoord(x, y) {
+            var string = this.stringCount - parseInt((x - this.cardMargins[3]) / this.columnWidth);
+            var fret = this.fretRange[0] + parseInt((y - this.cardMargins[0]) / this.rowHeight);
+            return [string, fret];
         }
     }]);
 

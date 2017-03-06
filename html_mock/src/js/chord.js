@@ -11,6 +11,7 @@ export default class Chord {
         this.columnCount = this.stringCount - 1;
         this.fretRange = this.getFretRange();
         this.fretBoundaries = this.getFretBoundaries();
+        // console.log(this.fretBoundaries);
 
         this.cardMargins = [54, 37, 52, 37];
         this.rowHeight = 34;
@@ -22,6 +23,8 @@ export default class Chord {
         this.width = this.innerWidth + this.cardMargins[1] + this.cardMargins[3];
 
         this.snap = Snap(this.width, this.height);
+
+        // console.log(this.getCoord(65, 140));
     }
 
     drawSvg() {
@@ -117,7 +120,9 @@ export default class Chord {
             ).addClass('fret');
             // draw string lines
             for(let string = 1; string <= this.stringCount; string++) {
-                let startPoint = this.getFingerDrawPoint(this.fretRange[fret], string);
+                let startPoint = this.getFingerDrawPoint(string, this.fretRange[fret]);
+                console.log([string, parseInt(fret) + this.fretRange[0]]);
+                console.log(this.getCoord(startPoint[0], startPoint[1]));
                 let endPoint = startPoint;
                 let lineArgs = [startPoint[0], startPoint[1], endPoint[0], endPoint[1]];
                 let fingerOuter = s.line(...lineArgs).addClass('outer');
@@ -147,23 +152,19 @@ export default class Chord {
                         fingerInner.animate({x2: x1}, 100).removeClass('line');
                         fingerOuter.animate({x2: x1}, 100).removeClass('line');
                     }
-                }).drag(function(dx, dy, x, y, event) {
+                }).drag(function(dx, dy) {
                     fretGroup.addClass('dragging');
                     let x1 = parseInt(fingerInner.attr('x1'));
                     let x2 = parseInt(fingerInner.attr('x2'));
                     let x2new = x1 + dx;
 
                     for(let string = 1; string <= that.stringCount; string++) {
-                        // console.log('blah');
-                        let x = that.getFingerDrawPoint(fret, string)[0];
+                        let x = that.getFingerDrawPoint(string, fret)[0];
                         let diff = Math.abs(x - x2new);
-                        // console.log(diff);
                         if(diff < that.columnWidth / 2 + .5){
                             x2new = x;
-                            // fingerOuter.x2 = x2new;
                             if(fingerInner.x2 != x2new) {
                                 fingerInner.x2 = x2new;
-                                // console.log(x2, x2new);
                                 fingerInner.animate({x2: x2new}, 75);
                                 fingerOuter.animate({x2: x2new}, 75);
 
@@ -178,42 +179,18 @@ export default class Chord {
                             break;
                         }
                     }
-
-
                 });
+                if(this.fretBoundaries[parseInt(fret)]){
+                    if(this.fretBoundaries[parseInt(fret)].indexOf(parseInt(string))){
+                        fretGroup.addClass('disabled');
+                    }
+                }
                 fretGroup.mouseup(function(handler) {
                     this.removeClass('adding').removeClass('removing').removeClass('dragging');
                 });
                 fretGroup.append(fingerGroup);
             }
         }
-
-        // for (let finger of this.fingers) {
-        //     if(finger.length == 0) continue;
-
-        //     let pathParts = [];
-
-        //     var startPoint = this.getFingerDrawPoint(finger[0][1], finger[0][0]);
-        //     pathParts.push(`M${startPoint[0]} ${startPoint[1]}`);
-        //     for(let gridPoint of finger) {
-        //         let point = this.getFingerDrawPoint(gridPoint[1], gridPoint[0]);
-        //         pathParts.push(`${point[0]} ${point[1]}`);
-        //     }
-        //     let pathString = pathParts.join(', ');
-
-        //     let fingerOuter = s.path(pathString).addClass('outer');
-        //     let fingerInner = s.path(pathString).addClass('inner')
-        //     s.g(
-        //         fingerOuter,
-        //         fingerInner
-        //     ).addClass('finger');
-
-        //     if (finger.length > 1) {
-        //         fingerInner.addClass('line');
-        //         fingerOuter.addClass('line');
-        //     }
-        // }
-
     }
 
     getFretRange() {
@@ -237,6 +214,7 @@ export default class Chord {
 
         lowFret = fretRangeBoudaries[0];
         highFret = fretRangeBoudaries[1];
+
         if(highFret < 7) {
             fretRangeBoudaries[0] = 1;
             fretRangeBoudaries[1] = 6;
@@ -264,7 +242,7 @@ export default class Chord {
         return result;
     }
 
-    getFingerDrawPoint(fret, string) {
+    getFingerDrawPoint(string, fret) {
         var startFret = this.fretRange[0];
 
         var x = this.width - this.cardMargins[1] - (string - 1) * this.columnWidth - 1;
@@ -274,6 +252,8 @@ export default class Chord {
     }
 
     getCoord(x, y) {
-        x - this.cardMargins[3]  this.innerWidth 
+        var string = this.stringCount - parseInt((x - this.cardMargins[3]) / this.columnWidth);
+        var fret = this.fretRange[0] + parseInt((y - this.cardMargins[0]) / this.rowHeight);
+        return [string, fret];
     }
 }

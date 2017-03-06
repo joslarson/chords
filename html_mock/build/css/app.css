@@ -47,6 +47,9 @@ svg {
     opacity: 0; }
   svg .fret .finger {
     opacity: 0; }
+    svg .fret .finger.disabled {
+      opacity: 0 !important;
+      pointer-events: none; }
     svg .fret .finger:hover {
       opacity: 1; }
     svg .fret .finger .inner, svg .fret .finger .outer {
